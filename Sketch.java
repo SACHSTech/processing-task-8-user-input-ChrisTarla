@@ -74,36 +74,3 @@ public class Sketch extends PApplet {
     }
   }
 }
-
-
-/*// Snowman 
-      if (mousePressed == true){
-        fill(230, 235, 255);
-        stroke(205, 210, 230);
-        ellipse(mouseX, mouseY + 30, 50, 50);
-        ellipse(mouseX, mouseY, 35, 35);
-        ellipse(mouseX, mouseY - 25, 25, 25);
-        fill(0);
-        stroke(0);
-        rect(mouseX - 8, mouseY - 50, 15, 15);
-        rect(mouseX - 12.5f, mouseY - 40, 25, 5);
-      } 
-
-      // Snowflake 
-      if (mousePressed == true){
-        fill(255);
-        stroke(255);
-        ellipse(mouseX, mouseY, 5, 5);
-      }
-
-      // Snow 
-      if (mousePressed == true){
-        fill(245, 245, 250);
-        stroke(235, 235, 240);
-        ellipse(mouseX, mouseY, 50, 50);
-      }
-      
-      blnSnowman = false;
-      blnSnowflake = false;
-      blnSnow = false;
-      */
