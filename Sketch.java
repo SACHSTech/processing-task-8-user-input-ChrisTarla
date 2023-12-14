@@ -2,6 +2,7 @@ import processing.core.PApplet;
 
 public class Sketch extends PApplet {
   // Variables 
+  boolean blnMouseDrag = false;
   boolean blnSnowman = false;
   boolean blnSnowflake = false;
   boolean blnSnow = false; 
@@ -21,7 +22,7 @@ public class Sketch extends PApplet {
 
   // Called repeatedly, anything drawn to the screen goes here
   public void draw() {
-      if (blnSnowman == true && mousePressed == true){
+      if (blnSnowman == true && mousePressed == true && blnMouseDrag == false && keyPressed == false){
         fill(230, 235, 255);
         stroke(205, 210, 230);
         ellipse(mouseX, mouseY + 30, 50, 50);
@@ -31,18 +32,21 @@ public class Sketch extends PApplet {
         stroke(0);
         rect(mouseX - 8, mouseY - 50, 15, 15);
         rect(mouseX - 12.5f, mouseY - 40, 25, 5);
-      } else if (blnSnowflake == true && mousePressed == true){
+      } else if (blnSnowflake == true && mousePressed == true && keyPressed == false){
         fill(255);
         stroke(255);
         ellipse(mouseX, mouseY, 5, 5);
-      } else if (blnSnow == true && mousePressed == true){
+      } else if (blnSnow == true && mousePressed == true && keyPressed == false){
         fill(245, 245, 250);
         stroke(235, 235, 240);
         ellipse(mouseX, mouseY, 50, 50);
-      } else if (blnEraser == true && mousePressed == true){
+      } else if (blnEraser == true && mousePressed == true && keyPressed == false){
         fill(160, 200, 250);
         stroke(160, 200, 250);
         ellipse(mouseX, mouseY, 50, 50);
+      } else if (blnEraseAll == true){
+        fill(160, 200, 250);
+        rect(0, 0, 800, 800);
       }
   } 
 
@@ -52,25 +56,41 @@ public class Sketch extends PApplet {
       blnSnowflake = false;
       blnSnow = false;
       blnEraser = false;
-      blnEraseAll = false;
     } else if (key == 'F' || key == 'f'){
       blnSnowman = false;
       blnSnowflake = true;
       blnSnow = false;
       blnEraser = false;
-      blnEraseAll = false;
     } else if (key == 'S' || key == 's'){
       blnSnowman = false;
       blnSnowflake = false;
       blnSnow = true;
       blnEraser = false;
-      blnEraseAll = false;
     } else if (key == 'E' || key == 'e'){
       blnSnowman = false;
       blnSnowflake = false;
       blnSnow = false;
       blnEraser = true;
-      blnEraseAll = false;
+    } else if (key == CODED){
+      if (keyCode == SHIFT){
+        blnSnowman = false;
+        blnSnowflake = false;
+        blnSnow = false;
+        blnEraser = false;
+        blnEraseAll = true;
+      }
     }
+  }
+
+  public void keyReleased(){
+    blnEraseAll = false;
+  }
+
+  public void mouseDragged(){
+    blnMouseDrag = true;
+  }
+
+  public void mouseReleased(){
+    blnMouseDrag = false;
   }
 }
