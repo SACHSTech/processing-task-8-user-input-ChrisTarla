@@ -2,7 +2,7 @@ import processing.core.PApplet;
 
 /**
  * Main class to execute sketch
- * @author C.Tarla
+ * @author 
  */
 class Main {
   public static void main(String[] args) {
